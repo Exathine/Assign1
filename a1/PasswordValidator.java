@@ -1,9 +1,25 @@
+/*
+ * Name: Chris Mauricio
+ * Student ID: 991 296 005
+ * Assignment: Assignment 1 - PasswordValidator
+ * 
+ * Description: The application takes a user supplied password as input
+ * and validates it against 3 checks:
+ * 		1) A password must have at least 8 characters
+ * 		2) A password must consist only of letters and digits
+ * 		3) A password must contain at least two digits
+ */
+
 package a1;
 
 import javax.swing.JOptionPane;
 
 public class PasswordValidator {
 	
+	/*
+	 * Main method based off the in-class-example 'Time' class
+	 * 
+	 */
 	public static void main(String[] args)
 	{
 		try
@@ -19,10 +35,15 @@ public class PasswordValidator {
 					"Error",	JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
+	//returns the length of the supplied string (password)
 	public static int getPasswordLength(String password) {
 		return password.length();
 	}
 	
+	/* Checks all characters individually to be in a valid set
+	 * Valid set: [0 - 9] or [a - z] or [A - Z]
+	 */
 	public static boolean checkValidPassword(String password)
 	{
 		for (int i = 0; i < password.length(); i++)
@@ -38,20 +59,18 @@ public class PasswordValidator {
 			}
 			else
 			{
-				return false;
-				
+				return false;				
 			}
 		}
 		return true;
 	}
-	//checks 
+	//returns the number of digits in a supplied string (password)
 	public static int checkDigits(String password)
 	{
 		int numDigits = 0;
 		for (int i = 0; i < password.length(); i++)
 		{
 			char c = password.charAt(i);
-
 			//check for digits
 			if ( (c > 47 && c < 58) )
 			{
